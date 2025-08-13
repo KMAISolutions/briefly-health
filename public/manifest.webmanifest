@@ -1,0 +1,43 @@
+{
+  "name": "Briefly Healthcare - Expert Medical Consultations",
+  "short_name": "Briefly Healthcare",
+  "description": "Expert Medical Consultations at Your Fingertips - Virtual healthcare services for South Africa",
+  "theme_color": "#6B21A8",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["health", "medical", "telemedicine"],
+  "lang": "en-ZA",
+  "shortcuts": [
+    {
+      "name": "Book Consultation",
+      "short_name": "Book",
+      "description": "Book a virtual consultation",
+      "url": "/for-patients",
+      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "WhatsApp Chat",
+      "short_name": "Chat",
+      "description": "Chat on WhatsApp",
+      "url": "https://wa.me/27723692658?text=Hi,%20I'd%20like%20a%20virtual%20consultation",
+      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+    }
+  ]
+}
