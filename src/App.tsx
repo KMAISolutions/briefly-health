@@ -9,6 +9,10 @@ import Footer from "./components/layout/Footer";
 import WhatsAppFloat from "./components/layout/WhatsAppFloat";
 import Index from "./pages/Index";
 import About from "./pages/About";
+import ForPatients from "./pages/ForPatients";
+import ForPractitioners from "./pages/ForPractitioners";
+import Community from "./pages/Community";
+import ContactUs from "./pages/ContactUs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -52,6 +56,10 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/for-patients" element={<ForPatients />} />
+                <Route path="/for-practitioners" element={<ForPractitioners />} />
+                <Route path="/community" element={<Community />} />
+                <Route path="/contact" element={<ContactUs />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
