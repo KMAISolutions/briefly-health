@@ -7,78 +7,52 @@ import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import TestimonialCarousel from '@/components/ui/testimonial-carousel';
 import patientConsultation from '@/assets/patient-consultation.jpg';
-
 export default function ForPatients() {
   const [selectedSpecialty, setSelectedSpecialty] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
-
-  const specialties = [
-    'General Medicine', 'Pediatrics', 'Women\'s Health', 'Mental Health',
-    'Dermatology', 'Cardiology', 'Endocrinology', 'Orthopedics'
-  ];
-
-  const locations = [
-    'Johannesburg', 'Cape Town', 'Durban', 'Pretoria',
-    'Port Elizabeth', 'Bloemfontein', 'Polokwane', 'Nelspruit'
-  ];
-
-  const services = [
-    {
-      icon: Heart,
-      title: 'Virtual Consultations',
-      description: 'Connect with qualified doctors from the comfort of your home',
-      features: ['24/7 Availability', 'Instant Diagnosis', 'Prescription Service']
-    },
-    {
-      icon: Shield,
-      title: 'Preventive Care',
-      description: 'Regular health screenings and wellness checks',
-      features: ['Health Monitoring', 'Early Detection', 'Lifestyle Advice']
-    },
-    {
-      icon: Clock,
-      title: 'Follow-up Care',
-      description: 'Continuous support for your ongoing health needs',
-      features: ['Progress Tracking', 'Medication Adjustments', 'Care Coordination']
-    }
-  ];
-
-  const educationalContent = [
-    {
-      title: 'How to Use Our Service',
-      description: 'Step-by-step guide to booking and attending virtual consultations',
-      videoUrl: 'https://example.com/how-to-use',
-      thumbnail: patientConsultation
-    },
-    {
-      title: 'Benefits of Virtual Care',
-      description: 'Discover the advantages of telehealth for you and your family',
-      videoUrl: 'https://example.com/benefits',
-      thumbnail: patientConsultation
-    },
-    {
-      title: 'Preparing for Your Consultation',
-      description: 'Tips to make the most of your virtual doctor visit',
-      videoUrl: 'https://example.com/preparation',
-      thumbnail: patientConsultation
-    }
-  ];
-
+  const specialties = ['General Medicine', 'Pediatrics', 'Women\'s Health', 'Mental Health', 'Dermatology', 'Cardiology', 'Endocrinology', 'Orthopedics'];
+  const locations = ['Johannesburg', 'Cape Town', 'Durban', 'Pretoria', 'Port Elizabeth', 'Bloemfontein', 'Polokwane', 'Nelspruit'];
+  const services = [{
+    icon: Heart,
+    title: 'Virtual Consultations',
+    description: 'Connect with qualified doctors from the comfort of your home',
+    features: ['24/7 Availability', 'Instant Diagnosis', 'Prescription Service']
+  }, {
+    icon: Shield,
+    title: 'Preventive Care',
+    description: 'Regular health screenings and wellness checks',
+    features: ['Health Monitoring', 'Early Detection', 'Lifestyle Advice']
+  }, {
+    icon: Clock,
+    title: 'Follow-up Care',
+    description: 'Continuous support for your ongoing health needs',
+    features: ['Progress Tracking', 'Medication Adjustments', 'Care Coordination']
+  }];
+  const educationalContent = [{
+    title: 'How to Use Our Service',
+    description: 'Step-by-step guide to booking and attending virtual consultations',
+    videoUrl: 'https://example.com/how-to-use',
+    thumbnail: patientConsultation
+  }, {
+    title: 'Benefits of Virtual Care',
+    description: 'Discover the advantages of telehealth for you and your family',
+    videoUrl: 'https://example.com/benefits',
+    thumbnail: patientConsultation
+  }, {
+    title: 'Preparing for Your Consultation',
+    description: 'Tips to make the most of your virtual doctor visit',
+    videoUrl: 'https://example.com/preparation',
+    thumbnail: patientConsultation
+  }];
   const whatsappBooking = () => {
     const message = encodeURIComponent("Hi! I'd like to book an appointment for a virtual consultation. Please help me schedule a session with a doctor.");
     window.open(`https://wa.me/27723692658?text=${message}`, '_blank');
   };
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src={patientConsultation} 
-            alt="Doctor consulting with patient"
-            className="w-full h-full object-cover"
-          />
+          <img src={patientConsultation} alt="Doctor consulting with patient" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent" />
         </div>
         
@@ -98,12 +72,7 @@ export default function ForPatients() {
               <Calendar className="mr-2 h-5 w-5" />
               Book Appointment
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4"
-              onClick={whatsappBooking}
-            >
+            <Button size="lg" variant="outline" onClick={whatsappBooking} className="border-white hover:bg-white text-lg px-8 py-4 text-violet-800">
               WhatsApp Booking
             </Button>
             <Dialog>
@@ -146,11 +115,9 @@ export default function ForPatients() {
                       <SelectValue placeholder="Select specialty" />
                     </SelectTrigger>
                     <SelectContent>
-                      {specialties.map((specialty) => (
-                        <SelectItem key={specialty} value={specialty}>
+                      {specialties.map(specialty => <SelectItem key={specialty} value={specialty}>
                           {specialty}
-                        </SelectItem>
-                      ))}
+                        </SelectItem>)}
                     </SelectContent>
                   </Select>
                 </div>
@@ -162,11 +129,9 @@ export default function ForPatients() {
                       <SelectValue placeholder="Select location" />
                     </SelectTrigger>
                     <SelectContent>
-                      {locations.map((location) => (
-                        <SelectItem key={location} value={location}>
+                      {locations.map(location => <SelectItem key={location} value={location}>
                           {location}
-                        </SelectItem>
-                      ))}
+                        </SelectItem>)}
                     </SelectContent>
                   </Select>
                 </div>
@@ -209,8 +174,7 @@ export default function ForPatients() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card key={index} className="glass-card border-primary/20 hover:scale-105 transition-transform duration-300">
+            {services.map((service, index) => <Card key={index} className="glass-card border-primary/20 hover:scale-105 transition-transform duration-300">
                 <CardHeader className="text-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                     <service.icon className="h-8 w-8 text-white" />
@@ -220,15 +184,12 @@ export default function ForPatients() {
                 <CardContent className="text-center">
                   <p className="text-muted-foreground mb-6">{service.description}</p>
                   <div className="space-y-2">
-                    {service.features.map((feature, i) => (
-                      <Badge key={i} variant="secondary" className="mr-2">
+                    {service.features.map((feature, i) => <Badge key={i} variant="secondary" className="mr-2">
                         {feature}
-                      </Badge>
-                    ))}
+                      </Badge>)}
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -244,16 +205,11 @@ export default function ForPatients() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {educationalContent.map((content, index) => (
-              <Dialog key={index}>
+            {educationalContent.map((content, index) => <Dialog key={index}>
                 <DialogTrigger asChild>
                   <Card className="glass-card border-primary/20 cursor-pointer hover:scale-105 transition-transform duration-300">
                     <div className="aspect-video relative overflow-hidden rounded-t-lg">
-                      <img 
-                        src={content.thumbnail} 
-                        alt={content.title}
-                        className="w-full h-full object-cover"
-                      />
+                      <img src={content.thumbnail} alt={content.title} className="w-full h-full object-cover" />
                       <div className="absolute inset-0 bg-primary/20 flex items-center justify-center">
                         <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center">
                           <Play className="h-8 w-8 text-primary ml-1" />
@@ -271,8 +227,7 @@ export default function ForPatients() {
                     <p className="text-lg text-muted-foreground">Video: {content.title}</p>
                   </div>
                 </DialogContent>
-              </Dialog>
-            ))}
+              </Dialog>)}
           </div>
         </div>
       </section>
@@ -298,24 +253,15 @@ export default function ForPatients() {
             Get started with your virtual consultation today. Quality healthcare is just a click away.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-4"
-            >
+            <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-4">
               <BookOpen className="mr-2 h-5 w-5" />
               Consult Now
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4"
-              onClick={whatsappBooking}
-            >
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4" onClick={whatsappBooking}>
               WhatsApp Quick Start
             </Button>
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 }
