@@ -69,7 +69,7 @@ export default function Home() {
               </div>
               <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-4 rounded-xl shadow-lg">
                 <div className="text-center">
-                  <div className="text-2xl font-bold">24/7</div>
+                  <div className="text-2xl font-bold rounded">24/7</div>
                   <div className="text-sm">Available</div>
                 </div>
               </div>
