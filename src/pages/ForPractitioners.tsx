@@ -435,7 +435,7 @@ export default function ForPractitioners() {
                     <div>
                       <h3 className="font-semibold text-lg">{testimonial.name}</h3>
                       <p className="text-muted-foreground">{testimonial.specialty}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                      <p className="text-sm text-purple-800">{testimonial.location}</p>
                     </div>
                   </div>
                   <blockquote className="text-lg text-muted-foreground italic mb-4">
