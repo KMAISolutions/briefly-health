@@ -164,7 +164,7 @@ export default function Community() {
 
   const filteredEvents = events.filter(event => 
     event.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-    (selectedCategory === '' || event.category === selectedCategory)
+    (selectedCategory === 'all' || selectedCategory === '' || event.category === selectedCategory)
   );
 
   return (
@@ -248,7 +248,7 @@ export default function Community() {
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Categories</SelectItem>
+                <SelectItem value="all">All Categories</SelectItem>
                 <SelectItem value="Rural Health">Rural Health</SelectItem>
                 <SelectItem value="Education">Education</SelectItem>
                 <SelectItem value="Maternal Health">Maternal Health</SelectItem>
