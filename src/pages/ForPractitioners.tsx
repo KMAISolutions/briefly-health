@@ -11,105 +11,95 @@ import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Progress } from '@/components/ui/progress';
 import AnimatedCounter from '@/components/ui/animated-counter';
 import practitionersWorking from '@/assets/practitioners-working.jpg';
-
 export default function ForPractitioners() {
   const [onboardingStep, setOnboardingStep] = useState(1);
-
-  const benefits = [
-    {
-      icon: DollarSign,
-      title: 'Competitive Earnings',
-      description: 'Earn R800-1500 per consultation',
-      metric: 'R1,200',
-      label: 'Average per consultation'
-    },
-    {
-      icon: Users,
-      title: 'Growing Patient Base',
-      description: 'Access to 10,000+ patients nationwide',
-      metric: '10K+',
-      label: 'Active patients'
-    },
-    {
-      icon: Calendar,
-      title: 'Flexible Schedule',
-      description: 'Set your own availability and working hours',
-      metric: '24/7',
-      label: 'Platform availability'
-    }
-  ];
-
-  const trainingModules = [
-    {
-      title: 'Why Our Training',
-      description: 'Understand the future of healthcare delivery',
-      duration: '30 mins',
-      completed: true
-    },
-    {
-      title: 'How It Works',
-      description: 'Navigate our platform and tools effectively',
-      duration: '45 mins',
-      completed: true
-    },
-    {
-      title: 'What You\'ll Learn',
-      description: 'Master telehealth best practices',
-      duration: '60 mins',
-      completed: false
-    },
-    {
-      title: 'Who Should Enroll',
-      description: 'Determine if our program fits your goals',
-      duration: '20 mins',
-      completed: false
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: 'Dr. Sarah Nkomo',
-      specialty: 'General Practitioner',
-      location: 'Cape Town',
-      rating: 5,
-      content: 'Joining Briefly Healthcare has transformed my practice. I can reach more patients and maintain a better work-life balance.',
-      avatar: 'S',
-      earnings: 'R45,000/month'
-    },
-    {
-      name: 'Dr. Michael van der Merwe',
-      specialty: 'Pediatrician',
-      location: 'Johannesburg',
-      rating: 5,
-      content: 'The platform is intuitive and the support team is exceptional. My patient satisfaction has never been higher.',
-      avatar: 'M',
-      earnings: 'R52,000/month'
-    }
-  ];
-
-  const onboardingSteps = [
-    { step: 1, title: 'Application', description: 'Submit your credentials and basic information' },
-    { step: 2, title: 'Verification', description: 'We verify your qualifications and background' },
-    { step: 3, title: 'Training', description: 'Complete our telehealth certification program' },
-    { step: 4, title: 'Platform Setup', description: 'Set up your profile and availability' },
-    { step: 5, title: 'Go Live', description: 'Start seeing patients and earning' }
-  ];
-
+  const benefits = [{
+    icon: DollarSign,
+    title: 'Competitive Earnings',
+    description: 'Earn R800-1500 per consultation',
+    metric: 'R1,200',
+    label: 'Average per consultation'
+  }, {
+    icon: Users,
+    title: 'Growing Patient Base',
+    description: 'Access to 10,000+ patients nationwide',
+    metric: '10K+',
+    label: 'Active patients'
+  }, {
+    icon: Calendar,
+    title: 'Flexible Schedule',
+    description: 'Set your own availability and working hours',
+    metric: '24/7',
+    label: 'Platform availability'
+  }];
+  const trainingModules = [{
+    title: 'Why Our Training',
+    description: 'Understand the future of healthcare delivery',
+    duration: '30 mins',
+    completed: true
+  }, {
+    title: 'How It Works',
+    description: 'Navigate our platform and tools effectively',
+    duration: '45 mins',
+    completed: true
+  }, {
+    title: 'What You\'ll Learn',
+    description: 'Master telehealth best practices',
+    duration: '60 mins',
+    completed: false
+  }, {
+    title: 'Who Should Enroll',
+    description: 'Determine if our program fits your goals',
+    duration: '20 mins',
+    completed: false
+  }];
+  const testimonials = [{
+    name: 'Dr. Sarah Nkomo',
+    specialty: 'General Practitioner',
+    location: 'Cape Town',
+    rating: 5,
+    content: 'Joining Briefly Healthcare has transformed my practice. I can reach more patients and maintain a better work-life balance.',
+    avatar: 'S',
+    earnings: 'R45,000/month'
+  }, {
+    name: 'Dr. Michael van der Merwe',
+    specialty: 'Pediatrician',
+    location: 'Johannesburg',
+    rating: 5,
+    content: 'The platform is intuitive and the support team is exceptional. My patient satisfaction has never been higher.',
+    avatar: 'M',
+    earnings: 'R52,000/month'
+  }];
+  const onboardingSteps = [{
+    step: 1,
+    title: 'Application',
+    description: 'Submit your credentials and basic information'
+  }, {
+    step: 2,
+    title: 'Verification',
+    description: 'We verify your qualifications and background'
+  }, {
+    step: 3,
+    title: 'Training',
+    description: 'Complete our telehealth certification program'
+  }, {
+    step: 4,
+    title: 'Platform Setup',
+    description: 'Set up your profile and availability'
+  }, {
+    step: 5,
+    title: 'Go Live',
+    description: 'Start seeing patients and earning'
+  }];
   const whatsappOnboarding = () => {
     const message = encodeURIComponent("Hi! I'm a medical practitioner interested in joining the Briefly Healthcare network. Please guide me through the onboarding process and share the required documents.");
     window.open(`https://wa.me/27723692658?text=${message}`, '_blank');
   };
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src={practitionersWorking} 
-            alt="Healthcare practitioners working"
-            className="w-full h-full object-cover"
-          />
+          <img src={practitionersWorking} alt="Healthcare practitioners working" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent" />
         </div>
         
@@ -129,24 +119,17 @@ export default function ForPractitioners() {
               <FileText className="mr-2 h-5 w-5" />
               Apply Now
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4"
-              onClick={whatsappOnboarding}
-            >
+            <Button size="lg" variant="outline" onClick={whatsappOnboarding} className="border-white hover:bg-white text-lg px-8 py-4 text-purple-900">
               WhatsApp Onboarding
             </Button>
           </div>
 
           {/* Stats Row */}
           <div className="grid md:grid-cols-3 gap-8 mt-16">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="text-center">
+            {benefits.map((benefit, index) => <div key={index} className="text-center">
                 <AnimatedCounter end={parseInt(benefit.metric.replace(/[^\d]/g, ''))} suffix={benefit.metric.includes('+') ? '+' : ''} />
                 <p className="text-lg opacity-90 mt-2">{benefit.label}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -162,8 +145,7 @@ export default function ForPractitioners() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="glass-card border-primary/20 hover:scale-105 transition-transform duration-300">
+            {benefits.map((benefit, index) => <Card key={index} className="glass-card border-primary/20 hover:scale-105 transition-transform duration-300">
                 <CardHeader className="text-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                     <benefit.icon className="h-8 w-8 text-white" />
@@ -175,8 +157,7 @@ export default function ForPractitioners() {
                   <div className="text-3xl font-bold text-primary mb-2">{benefit.metric}</div>
                   <p className="text-sm text-muted-foreground">{benefit.label}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -249,14 +230,11 @@ export default function ForPractitioners() {
 
             <TabsContent value="curriculum" className="mt-8">
               <div className="space-y-4">
-                {trainingModules.map((module, index) => (
-                  <Card key={index} className="glass-card border-primary/20">
+                {trainingModules.map((module, index) => <Card key={index} className="glass-card border-primary/20">
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-4">
-                          <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                            module.completed ? 'bg-green-500' : 'bg-muted'
-                          }`}>
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center ${module.completed ? 'bg-green-500' : 'bg-muted'}`}>
                             {module.completed ? '✓' : index + 1}
                           </div>
                           <div>
@@ -267,8 +245,7 @@ export default function ForPractitioners() {
                         <Badge variant="outline">{module.duration}</Badge>
                       </div>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
             </TabsContent>
 
@@ -329,26 +306,20 @@ export default function ForPractitioners() {
 
           <div className="max-w-4xl mx-auto">
             <div className="relative">
-              {onboardingSteps.map((step, index) => (
-                <div key={index} className="flex items-center mb-8 last:mb-0">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold ${
-                    step.step <= onboardingStep ? 'bg-primary' : 'bg-muted'
-                  }`}>
+              {onboardingSteps.map((step, index) => <div key={index} className="flex items-center mb-8 last:mb-0">
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold ${step.step <= onboardingStep ? 'bg-primary' : 'bg-muted'}`}>
                     {step.step}
                   </div>
                   <div className="ml-6 flex-1">
                     <h3 className="text-lg font-semibold">{step.title}</h3>
                     <p className="text-muted-foreground">{step.description}</p>
                   </div>
-                  {index < onboardingSteps.length - 1 && (
-                    <div className="absolute left-6 mt-12 w-0.5 h-8 bg-border" />
-                  )}
-                </div>
-              ))}
+                  {index < onboardingSteps.length - 1 && <div className="absolute left-6 mt-12 w-0.5 h-8 bg-border" />}
+                </div>)}
             </div>
             
             <div className="mt-8">
-              <Progress value={(onboardingStep / onboardingSteps.length) * 100} className="mb-4" />
+              <Progress value={onboardingStep / onboardingSteps.length * 100} className="mb-4" />
               <p className="text-center text-muted-foreground">
                 Step {onboardingStep} of {onboardingSteps.length}
               </p>
@@ -455,8 +426,7 @@ export default function ForPractitioners() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="glass-card border-primary/20">
+            {testimonials.map((testimonial, index) => <Card key={index} className="glass-card border-primary/20">
                 <CardContent className="p-8">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-xl font-bold">
@@ -473,15 +443,12 @@ export default function ForPractitioners() {
                   </blockquote>
                   <div className="flex justify-between items-center">
                     <div className="flex gap-1">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <span key={i} className="text-warning">★</span>
-                      ))}
+                      {[...Array(testimonial.rating)].map((_, i) => <span key={i} className="text-warning">★</span>)}
                     </div>
                     <Badge className="bg-green-500 text-white">{testimonial.earnings}</Badge>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -494,24 +461,15 @@ export default function ForPractitioners() {
             Join our network of successful practitioners and transform your practice today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-4"
-            >
+            <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-4">
               <FileText className="mr-2 h-5 w-5" />
               Apply to Join
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4"
-              onClick={whatsappOnboarding}
-            >
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4" onClick={whatsappOnboarding}>
               WhatsApp Onboarding
             </Button>
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 }
