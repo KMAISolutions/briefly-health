@@ -24,6 +24,19 @@ const App = () => {
       navigator.serviceWorker.register('/service-worker.js')
         .then((registration) => {
           console.log('SW registered: ', registration);
+          
+          // Check for updates
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            if (newWorker) {
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  // New content is available, notify user
+                  console.log('New content available, please refresh.');
+                }
+              });
+            }
+          });
         })
         .catch((registrationError) => {
           console.log('SW registration failed: ', registrationError);
@@ -35,14 +48,52 @@ const App = () => {
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
-      // Show custom install prompt after a delay
+      
+      // Show custom install prompt after user engagement
       setTimeout(() => {
         if (deferredPrompt) {
-          deferredPrompt.prompt();
+          showInstallPrompt(deferredPrompt);
         }
       }, 10000);
     });
+
+    // Handle app installed
+    window.addEventListener('appinstalled', () => {
+      console.log('PWA installed successfully');
+      deferredPrompt = null;
+    });
+
+    // Network status monitoring
+    const updateOnlineStatus = () => {
+      console.log(navigator.onLine ? 'Online' : 'Offline');
+    };
+    
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+
+    // Background sync registration
+    if ('serviceWorker' in navigator && 'sync' in window.ServiceWorkerRegistration.prototype) {
+      navigator.serviceWorker.ready.then((registration) => {
+        console.log('Background sync supported');
+      });
+    }
+
+    return () => {
+      window.removeEventListener('online', updateOnlineStatus);
+      window.removeEventListener('offline', updateOnlineStatus);
+    };
   }, []);
+
+  const showInstallPrompt = (deferredPrompt: any) => {
+    // You can implement a custom install banner here
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult: any) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the install prompt');
+      }
+      deferredPrompt = null;
+    });
+  };
 
   return (
     <QueryClientProvider client={queryClient}>
