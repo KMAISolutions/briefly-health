@@ -235,7 +235,15 @@ export default function ContactUs() {
                   </div>
                   <Button 
                     className="w-full bg-primary text-white hover:bg-primary/90"
-                    onClick={typeof method.action === 'function' ? method.action : () => window.open(method.action as string, '_blank')}
+                    onClick={typeof method.action === 'function' ? method.action : () => {
+                      if (typeof method.action === 'string') {
+                        if (method.action.startsWith('tel:') || method.action.startsWith('mailto:')) {
+                          window.location.href = method.action;
+                        } else {
+                          window.open(method.action, '_blank');
+                        }
+                      }
+                    }}
                   >
                     Contact Now
                   </Button>

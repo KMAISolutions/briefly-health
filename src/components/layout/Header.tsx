@@ -1,26 +1,33 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, MessageCircle, Calendar } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle, Calendar, Home, Users, Stethoscope, Heart, UserCheck, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+
 const navigation = [{
   name: 'Home',
-  href: '/'
+  href: '/',
+  icon: Home
 }, {
   name: 'About',
-  href: '/about'
+  href: '/about',
+  icon: Heart
 }, {
   name: 'For Patients',
-  href: '/for-patients'
+  href: '/for-patients',
+  icon: Users
 }, {
   name: 'For Practitioners',
-  href: '/for-practitioners'
+  href: '/for-practitioners',
+  icon: Stethoscope
 }, {
   name: 'Community',
-  href: '/community'
+  href: '/community',
+  icon: UserCheck
 }, {
   name: 'Contact Us',
-  href: '/contact-us'
+  href: '/contact-us',
+  icon: Mail
 }];
 export default function Header() {
   const location = useLocation();
@@ -60,9 +67,18 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {navigation.map(item => <Link key={item.name} to={item.href} className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === item.href ? 'text-primary border-b-2 border-primary' : 'text-muted-foreground'}`}>
+            {navigation.map(item => (
+              <Link 
+                key={item.name} 
+                to={item.href} 
+                className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary ${
+                  location.pathname === item.href ? 'text-primary border-b-2 border-primary' : 'text-muted-foreground'
+                }`}
+              >
+                <item.icon className="h-4 w-4" />
                 {item.name}
-              </Link>)}
+              </Link>
+            ))}
           </nav>
 
           {/* Desktop CTAs */}
@@ -74,7 +90,10 @@ export default function Header() {
               </Link>
             </Button>
             <Button size="sm" asChild>
-              
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-4 w-4 mr-2" />
+                WhatsApp
+              </a>
             </Button>
           </div>
 
@@ -87,9 +106,19 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="right">
               <div className="flex flex-col space-y-4 mt-8">
-                {navigation.map(item => <Link key={item.name} to={item.href} onClick={() => setIsOpen(false)} className={`text-lg font-medium transition-colors hover:text-primary ${location.pathname === item.href ? 'text-primary' : 'text-muted-foreground'}`}>
+                {navigation.map(item => (
+                  <Link 
+                    key={item.name} 
+                    to={item.href} 
+                    onClick={() => setIsOpen(false)} 
+                    className={`flex items-center gap-2 text-lg font-medium transition-colors hover:text-primary ${
+                      location.pathname === item.href ? 'text-primary' : 'text-muted-foreground'
+                    }`}
+                  >
+                    <item.icon className="h-5 w-5" />
                     {item.name}
-                  </Link>)}
+                  </Link>
+                ))}
                 <div className="pt-4 space-y-2">
                   <Button className="w-full" asChild>
                     <Link to="/for-patients" onClick={() => setIsOpen(false)}>

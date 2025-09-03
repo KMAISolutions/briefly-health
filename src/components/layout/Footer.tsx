@@ -114,9 +114,16 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-primary-pale/20 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-primary-pale text-sm">
-            © 2025 Briefly Healthcare. All rights reserved.
-          </p>
+          <div className="text-center md:text-left">
+            <p className="text-primary-pale text-sm">
+              © 2025 Briefly Healthcare. All rights reserved.
+            </p>
+            <p className="text-primary-pale/80 text-xs mt-1">
+              Powered By: <a href="https://www.kwenamai.co.za" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors underline">
+                Kwena Moloto A.I Solutions
+              </a>
+            </p>
+          </div>
           <div className="flex space-x-6 text-sm">
             <a href="#" className="text-primary-pale hover:text-primary-foreground transition-colors">
               Privacy Policy
