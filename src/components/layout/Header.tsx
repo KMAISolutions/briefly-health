@@ -68,10 +68,7 @@ export default function Header() {
           {/* Desktop CTAs */}
           <div className="hidden md:flex items-center space-x-4">
             <Button variant="outline" size="sm" asChild>
-              <Link to="/for-patients">
-                <Calendar className="h-4 w-4 mr-2" />
-                Get Started
-              </Link>
+              
             </Button>
             <Button size="sm" asChild>
               
