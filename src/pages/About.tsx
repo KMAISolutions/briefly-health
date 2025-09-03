@@ -3,39 +3,53 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import doctorPortrait from '@/assets/doctor-portrait.jpg';
 import heroImage from '@/assets/hero-telemedicine.jpg';
+
 export default function About() {
   const whatsappUrl = "https://wa.me/27723692658?text=Hi,%20I'd%20like%20to%20learn%20more%20about%20Briefly%20Healthcare";
-  const values = [{
-    icon: <Heart className="h-8 w-8 text-primary" />,
-    title: "Expert Guidance",
-    description: "Our qualified medical professionals provide evidence-based care with compassion and expertise."
-  }, {
-    icon: <Clock className="h-8 w-8 text-primary" />,
-    title: "Convenient Access",
-    description: "Healthcare when you need it, where you need it. 24/7 access to medical consultations."
-  }, {
-    icon: <Users className="h-8 w-8 text-primary" />,
-    title: "Personalized Care",
-    description: "Tailored treatment plans that consider your unique health needs and circumstances."
-  }];
-  const timeline = [{
-    year: "2000",
-    title: "Founded with Vision",
-    description: "Established Briefly Healthcare with a mission to revolutionize healthcare access in South Africa."
-  }, {
-    year: "2010",
-    title: "Clinic Network Expansion",
-    description: "Opened multiple clinic locations across Gauteng, serving thousands of patients."
-  }, {
-    year: "2018",
-    title: "Digital Transformation",
-    description: "Launched our telemedicine platform, bringing healthcare to patients' homes."
-  }, {
-    year: "2025",
-    title: "Leading Innovation",
-    description: "Now serving 10,000+ patients with cutting-edge virtual healthcare solutions."
-  }];
-  return <div className="min-h-screen">
+
+  const values = [
+    {
+      icon: <Heart className="h-8 w-8 text-primary" />,
+      title: "Expert Guidance",
+      description: "Our qualified medical professionals provide evidence-based care with compassion and expertise."
+    },
+    {
+      icon: <Clock className="h-8 w-8 text-primary" />,
+      title: "Convenient Access", 
+      description: "Healthcare when you need it, where you need it. 24/7 access to medical consultations."
+    },
+    {
+      icon: <Users className="h-8 w-8 text-primary" />,
+      title: "Personalized Care",
+      description: "Tailored treatment plans that consider your unique health needs and circumstances."
+    }
+  ];
+
+  const timeline = [
+    {
+      year: "2000",
+      title: "Founded with Vision",
+      description: "Established Briefly Healthcare with a mission to revolutionize healthcare access in South Africa."
+    },
+    {
+      year: "2010", 
+      title: "Clinic Network Expansion",
+      description: "Opened multiple clinic locations across Gauteng, serving thousands of patients."
+    },
+    {
+      year: "2018",
+      title: "Digital Transformation",
+      description: "Launched our telemedicine platform, bringing healthcare to patients' homes."
+    },
+    {
+      year: "2025",
+      title: "Leading Innovation",
+      description: "Now serving 10,000+ patients with cutting-edge virtual healthcare solutions."
+    }
+  ];
+
+  return (
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden gradient-hero py-20 md:py-32">
         <div className="container mx-auto px-4">
@@ -44,7 +58,7 @@ export default function About() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight">
                 Revolutionizing Healthcare
               </h1>
-              <p className="text-xl md:text-2xl leading-relaxed text-gray-100">
+              <p className="text-xl md:text-2xl text-primary-pale leading-relaxed">
                 Transforming Access to Quality Medical Advice Online
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -63,7 +77,11 @@ export default function About() {
 
             <div className="relative">
               <div className="glass-card rounded-2xl overflow-hidden">
-                <img src={heroImage} alt="Healthcare innovation" className="w-full h-[400px] md:h-[500px] object-cover" />
+                <img 
+                  src={heroImage} 
+                  alt="Healthcare innovation" 
+                  className="w-full h-[400px] md:h-[500px] object-cover"
+                />
               </div>
             </div>
           </div>
@@ -100,9 +118,17 @@ export default function About() {
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <img src={doctorPortrait} alt="Healthcare team member" className="rounded-lg object-cover h-64" />
+              <img 
+                src={doctorPortrait} 
+                alt="Healthcare team member" 
+                className="rounded-lg object-cover h-64"
+              />
               <div className="space-y-4">
-                <img src={heroImage} alt="Medical consultation" className="rounded-lg object-cover h-30" />
+                <img 
+                  src={heroImage} 
+                  alt="Medical consultation" 
+                  className="rounded-lg object-cover h-30"
+                />
                 <div className="bg-primary text-primary-foreground p-4 rounded-lg text-center">
                   <div className="text-2xl font-bold">900+</div>
                   <div className="text-sm">Staff Worldwide</div>
@@ -124,7 +150,8 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((value, index) => <Card key={index} className="glass-card border-primary/20 text-center">
+            {values.map((value, index) => (
+              <Card key={index} className="glass-card border-primary/20 text-center">
                 <CardContent className="p-8 space-y-4">
                   <div className="flex justify-center">
                     {value.icon}
@@ -132,7 +159,8 @@ export default function About() {
                   <h3 className="text-xl font-semibold text-primary">{value.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{value.description}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -152,7 +180,8 @@ export default function About() {
             <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-primary/20"></div>
             
             <div className="space-y-12">
-              {timeline.map((item, index) => <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+              {timeline.map((item, index) => (
+                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
                   <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
                     <Card className="glass-card border-primary/20">
                       <CardContent className="p-6">
@@ -171,7 +200,8 @@ export default function About() {
                   </div>
                   
                   <div className="w-1/2"></div>
-                </div>)}
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -188,19 +218,12 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[{
-            name: "Dr. Sarah Mthembu",
-            role: "Chief Medical Officer",
-            initial: "S"
-          }, {
-            name: "Dr. James Ndaba",
-            role: "Head of Telemedicine",
-            initial: "J"
-          }, {
-            name: "Dr. Nomsa Khumalo",
-            role: "Director of Patient Care",
-            initial: "N"
-          }].map((member, index) => <Card key={index} className="glass-card border-primary/20 text-center">
+            {[
+              { name: "Dr. Sarah Mthembu", role: "Chief Medical Officer", initial: "S" },
+              { name: "Dr. James Ndaba", role: "Head of Telemedicine", initial: "J" },
+              { name: "Dr. Nomsa Khumalo", role: "Director of Patient Care", initial: "N" }
+            ].map((member, index) => (
+              <Card key={index} className="glass-card border-primary/20 text-center">
                 <CardContent className="p-6 space-y-4">
                   <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-2xl font-bold mx-auto">
                     {member.initial}
@@ -210,7 +233,8 @@ export default function About() {
                     <p className="text-muted-foreground">{member.role}</p>
                   </div>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -240,5 +264,6 @@ export default function About() {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 }
