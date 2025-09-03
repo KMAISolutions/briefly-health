@@ -3,24 +3,30 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MessageCircle, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-
-const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'For Patients', href: '/for-patients' },
-  { name: 'For Practitioners', href: '/for-practitioners' },
-  { name: 'Community', href: '/community' },
-  { name: 'Contact Us', href: '/contact-us' },
-];
-
+const navigation = [{
+  name: 'Home',
+  href: '/'
+}, {
+  name: 'About',
+  href: '/about'
+}, {
+  name: 'For Patients',
+  href: '/for-patients'
+}, {
+  name: 'For Practitioners',
+  href: '/for-practitioners'
+}, {
+  name: 'Community',
+  href: '/community'
+}, {
+  name: 'Contact Us',
+  href: '/contact-us'
+}];
 export default function Header() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-
   const whatsappUrl = "https://wa.me/27723692658?text=Hi,%20I'd%20like%20a%20virtual%20consultation";
-
-  return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+  return <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       {/* Emergency Top Bar */}
       <div className="bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 py-2 flex justify-between items-center text-sm">
@@ -33,8 +39,7 @@ export default function Header() {
               <Phone className="h-3 w-3" />
               <span className="hidden sm:inline">Call Now</span>
             </a>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" 
-               className="flex items-center gap-1 hover:text-primary-pale transition-colors">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-primary-pale transition-colors">
               <MessageCircle className="h-3 w-3" />
               <span className="hidden sm:inline">WhatsApp</span>
             </a>
@@ -55,19 +60,9 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname === item.href
-                    ? 'text-primary border-b-2 border-primary'
-                    : 'text-muted-foreground'
-                }`}
-              >
+            {navigation.map(item => <Link key={item.name} to={item.href} className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === item.href ? 'text-primary border-b-2 border-primary' : 'text-muted-foreground'}`}>
                 {item.name}
-              </Link>
-            ))}
+              </Link>)}
           </nav>
 
           {/* Desktop CTAs */}
@@ -79,10 +74,7 @@ export default function Header() {
               </Link>
             </Button>
             <Button size="sm" asChild>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-4 w-4 mr-2" />
-                WhatsApp
-              </a>
+              
             </Button>
           </div>
 
@@ -95,18 +87,9 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="right">
               <div className="flex flex-col space-y-4 mt-8">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`text-lg font-medium transition-colors hover:text-primary ${
-                      location.pathname === item.href ? 'text-primary' : 'text-muted-foreground'
-                    }`}
-                  >
+                {navigation.map(item => <Link key={item.name} to={item.href} onClick={() => setIsOpen(false)} className={`text-lg font-medium transition-colors hover:text-primary ${location.pathname === item.href ? 'text-primary' : 'text-muted-foreground'}`}>
                     {item.name}
-                  </Link>
-                ))}
+                  </Link>)}
                 <div className="pt-4 space-y-2">
                   <Button className="w-full" asChild>
                     <Link to="/for-patients" onClick={() => setIsOpen(false)}>
@@ -126,6 +109,5 @@ export default function Header() {
           </Sheet>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 }
